@@ -1,0 +1,173 @@
+<html ng-app="castApp">
+<head>
+  
+  <meta charset="utf-8">
+   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="public/css/style.css">
+
+
+<title>Movie Tracker</title>
+
+</head>
+
+<body ng-controller="castController" ng-init='load()'>
+<div ng-view></div>
+<div class="navbar navbar-default navbar-static-top"
+     role="navigation" bs-navbar>
+  <div class="navbar-header">
+
+    <a class="navbar-brand" href="/">
+      <span class="glyphicon glyphicon-film"></span>
+      Movie<strong>Trackr</strong></a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li ><a href="index.html">Home</a></li>
+    <li ><a href="/add"></a></li>
+  </ul>
+   <ul class="nav navbar-nav">
+    <li ><a href="/"></a></li>
+    <li ><a href="/add"></a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <li ><a href="/"></a></li>
+    <li ><a href="/add"></a></li>
+  </ul>
+    <ul class="nav navbar-nav">
+    <li ><a href="/"></a></li>
+    <li ><a href="/add"></a></li>
+  </ul>
+ 
+   <ul class="nav navbar-nav ">
+    <li > 
+    <div class="box">
+  <div class="container-1">
+       <h4><a href=""></a></h4>
+  </div>
+</div>
+
+
+   </li>
+   
+  </ul>
+  <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+    <li ><a href="/login"></a></li>
+    <li ><a href="/signup"></a></li>
+  </ul>
+  <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+    <li class="navbar-text" ng-bind="currentUser.email"></li>
+    <li><a href="javascript:void(0)" ng-click="logout()"></a></li>
+  </ul>
+</div>
+
+<div class="jumbotron">    
+<div class="container">
+<div class="row">
+    <div class="col-md-3" >
+      
+            <img src="http://image.tmdb.org/t/p/original{{general.poster_path}}" alt="{{general.title}}" height="300" width="200">           
+            
+    </div>
+    <div class="col-md-2">
+      <h3>Budget</h3><br/>
+      <h4>{{general.budget|currency}}</h4><br/>
+      <h3>Release Date</h3><br/>
+      <h4>{{general.release_date|date}}</h4>
+    </div>
+    <div class="col-md-2">
+      <h3>Revenvue</h3><br/>
+      <h4>{{general.revenue|currency}}</h4><br/>
+      <h3>Tag Line</h3><br/>
+      <h4>{{general.tagline}}</h4>
+
+    </div>
+    <div class="col-md-5" align="justify">
+      <h3>Review By {{review.results[0].author|uppercase}}</h3><br/>
+      <h4>{{review.results[0].content}}</h4>
+      
+    </div>
+          
+          </div> 
+  <div class="row">
+    <div class="col-md-3" ><img src="http://image.tmdb.org/t/p/original{{general.backdrop_path}}" alt="{{general.title}}" height="300" width="200"> </div>
+    <div class="col-md-4">    <h3>Trailer</h3><br/>
+<h4><a href="https://www.youtube.com/watch?v={{video.results[0].key}}">Click this link to Watch Trailer</a></h4></div>
+
+
+<div class="col-md-5" align="justify">
+<h3>Overview</h3><br/>
+<h4>{{general.overview}}</h4>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Cast & Crew</h3>
+  </div>
+  <div class="col-md-3">
+    <h3>Role & Department</h3>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+  
+</div>
+</div>
+<div class="container" >
+<div class="row" ng-repeat="x in cast.cast">
+  <div class='col-md-3' >
+          <figure>
+          <form action="information.html" method="get">
+           <img src="http://image.tmdb.org/t/p/original{{x.profile_path}}" alt="{{x.name}}" height="100" width="100"> 
+           <figcaption><h4><input type="submit" name="{{x.id}}" value="{{x.name}}"></h4></figcaption>
+          </figure>  </form><br/>
+    
+    
+    </div>
+  <div class="col-md-3" >
+      <h4>{{x.character}}</h4>
+    </div></div>
+
+    <div class="row" ng-repeat="y in cast.crew">
+  
+    <div class='col-md-3' >
+          <figure>
+          <form action="information.html" method="get">
+           <img src="http://image.tmdb.org/t/p/original{{y.profile_path}}" alt="{{y.name}}" height="100" width="100"> 
+           <figcaption><h4><input type="submit" name="{{y.id}}" value="{{y.name}}"></h4></figcaption>
+          </figure>  </form><br/>
+    
+    
+    </div>
+  <div class="col-md-3" >
+      <h4>{{y.department}}</h4>
+    </div>
+
+</div>
+</div>
+</div>
+
+
+
+          
+  
+
+
+<script src="js/castController.js">
+</script>
+</body>
