@@ -28,6 +28,7 @@
 </head>
 
 <body ng-controller="castController" ng-init='load()'>
+<header>
 <div ng-view></div>
 <div class="navbar navbar-default navbar-static-top"
      role="navigation" bs-navbar>
@@ -75,22 +76,26 @@
     <li><a href="javascript:void(0)" ng-click="logout()"></a></li>
   </ul>
 </div>
-
+</header>
 <div class="jumbotron">    
 <div class="container">
 <div class="row">
     <div class="col-md-3" >
+    <br/>
+    <br/>
       
             <img src="http://image.tmdb.org/t/p/original{{general.poster_path}}" alt="{{general.title}}" height="300" width="200">           
             
     </div>
     <div class="col-md-2">
+    <br/>
       <h3>Budget</h3><br/>
       <h4>{{general.budget|currency}}</h4><br/>
       <h3>Release Date</h3><br/>
       <h4>{{general.release_date|date}}</h4>
     </div>
     <div class="col-md-2">
+    <br/>
       <h3>Revenvue</h3><br/>
       <h4>{{general.revenue|currency}}</h4><br/>
       <h3>Tag Line</h3><br/>
@@ -98,6 +103,7 @@
 
     </div>
     <div class="col-md-5" align="justify">
+    <br/>
       <h3>Review By {{review.results[0].author|uppercase}}</h3><br/>
       <h4>{{review.results[0].content}}</h4>
       
@@ -165,7 +171,18 @@
 
 
           
+  <footer>
+
   
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8"> <span class="copyright">Copyright &copy; 2015 Movie Tracker.</span> </div>
+      
+    </div>
+  </div>
+
+
+</footer>
 
 
 <script src="js/castController.js">

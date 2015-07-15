@@ -28,6 +28,7 @@
 </head>
 
 <body ng-controller="infController" ng-init='load()'>
+<header>
 <div ng-view></div>
 <div class="navbar navbar-default navbar-static-top"
      role="navigation" bs-navbar>
@@ -75,19 +76,21 @@
     <li><a href="javascript:void(0)" ng-click="logout()"></a></li>
   </ul>
 </div>
-
+</header>
 
 <div class="jumbotron">    
 <div class="container">
 <div class="row">
     <div class="col-md-3" >
-
+<br/>
     <figure>
+    <br/>
       <img src="http://image.tmdb.org/t/p/original{{general.profile_path}}" alt="{{general.title}}" height="300" width="200"> 
     <figcaption><h4>{{general.name}}</h4></figcaption>
     </figure>
     </div>
     <div class="col-md-9" align="justify">
+    <br/>
     <h3>Biography</h3><br/>
     <h4>{{general.biography}}</h4>
     </div>
@@ -137,6 +140,18 @@
 </div>
 </div>
 </div>
+<footer>
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8"> <span class="copyright">Copyright &copy; 2015 Movie Tracker.</span> </div>
+      
+    </div>
+  </div>
+
+
+</footer>
 
 <script src="js/infController.js">
 </script>

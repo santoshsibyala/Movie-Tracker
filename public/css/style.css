@@ -212,6 +212,7 @@ em {
   float: left;
   padding-left: 15px;
 
+
 }
 
 .navbar-brand {
@@ -240,7 +241,7 @@ em {
 }
 .container-1 input#search{
   width: 500px;
-  height: 50px;
+  height: 100%;
   background: #2b303b;
   border: none;
   font-size: 10pt;
@@ -287,3 +288,19 @@ transition: background .55s ease;
 #back{
     left: 20;
 }
+  footer {
+    /*display: block; */
+    text-align: center;
+    background-color: #515151;
+    padding: 1rem;
+    position:fixed;
+     bottom:0;
+     width:100%;
+     height:40px;
+  }
+  header{
+    position:fixed;
+    top:0;
+    width:100%;
+     height:40px;
+  }
