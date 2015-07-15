@@ -1,2 +1,2 @@
 # Movie-Tracker
-It will description about english movies which we searched.
+It will give description about english movies which we searched on our site.
